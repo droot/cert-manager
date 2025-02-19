@@ -1,0 +1,16 @@
+labels:
+  configdelivery-variant-storage-strategy: nested
+resourceBundleSelector:
+  cloudBuildRepository:
+    name: projects/cdrollouts-sunilarora/locations/us-central1/connections/gh-admin/repositories/droot-cert-manager
+    serviceAccount: projects/cdrollouts-sunilarora/serviceAccounts/fp-test-sa@cdrollouts-sunilarora.iam.gserviceaccount.com
+    tag: v1.0.2
+    variantsPattern: clusters/*
+rolloutStrategy:
+  rolling:
+    maxConcurrent: 2
+target:
+  fleet:
+    project: projects/cdrollouts-sunilarora
+variantSelector:
+  variantNameTemplate: "${membership.name}"
